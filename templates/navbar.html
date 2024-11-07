@@ -23,9 +23,9 @@
             <a class="nav-link waves-effect" href="{% url 'welcome-page' %}"><b>Home</b></a>
           </li>
           {% if request.user.is_authenticated %}
-          <li class="nav-item">
+          {% comment %} <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'view-rooms' %}"><b>Rooms</b></a>
-          </li>
+          </li> {% endcomment %}
           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'app:student-register' %}"><b>Student Page</b></a>
           </li>
