@@ -111,96 +111,6 @@
 </div>
 <!--/.Carousel Wrapper-->
 
-<!--Main layout-->
-{% comment %} <main>
-    <div class="container">
-
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
-
-        <!-- Navbar brand -->
-        <span class="navbar-brand">Facilities:</span>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="">Rooms</a>
-            </li>
-        </ul>
-        <!-- Links -->
-        </div>
-        <!-- Collapsible content -->
-
-    </nav>
-    <!--/.Navbar-->
-
-    <!--Section: Products v.3-->
-    <section class="text-center mb-4">
-
-        <!--Grid row-->
-        <div class="row wow fadeIn">
-        {% for room in rooms %}
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4">
-
-            <!--Card-->
-            <div class="card">
-
-            <!--Card image-->
-            <div class="view overlay">
-                <img src="{{room.image1.url}}" class="card-img-top" alt="" style="height:200px;">
-                <a>
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <!--Card image-->
-
-            <!--Card content-->
-            <div class="card-body text-center">
-                <!--Category & Title-->
-                <a href="" class="grey-text">
-                <h5>{{room.room_name}}</h5>
-                </a>
-                <h5>
-                <strong>
-                    <a href="" class="dark-grey-text">Block {{room.block.block_name}}
-                    <span class="badge badge-pill danger-color">{{room.room_tag}}</span>
-                    </a>
-                </strong>
-                </h5>
-
-                <h4 class="font-weight-bold blue-text">
-                    <strong>₦{{room.charge}}</strong>
-                </h4>
-            </div>
-            <!--Card content-->
-
-            </div>
-            <!--Card-->
-
-        </div>
-        <!--Grid column-->
-
-        {% endfor %}
-        </div>
-        <!--Grid row-->
-
-    </section>
-    <!--Section: Products v.3-->
-
-    </div>
-</main> {% endcomment %}
-<!--Main layout-->
 {% if notifications %}
     <div class="container mt-4">
         <div class="card" style="border: none; background-color: #ffffff;">
@@ -220,8 +130,8 @@
                                     <span style="color: red; animation: blink-animation 0.55s infinite;">»</span> 
                                 </td>
                                 <td style="width: 75%; color: black;">
-                                    <strong>{{ notification.title }}:</strong><br>
-                                    <span>{{ notification.content}}</span> 
+                                    <strong style="font-size: 1.2em;">{{ notification.title }}:</strong><br>
+                                    <span>{{ notification.content }}</span> 
                                 </td>
                                 <td style="width: 20%; color: black;" class="text-muted text-right">
                                     {{ notification.created_at|date:"d/m/Y H:i" }}
