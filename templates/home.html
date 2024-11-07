@@ -112,7 +112,7 @@
 <!--/.Carousel Wrapper-->
 
 <!--Main layout-->
-<main>
+{% comment %} <main>
     <div class="container">
 
     <!--Navbar-->
@@ -199,8 +199,54 @@
     <!--Section: Products v.3-->
 
     </div>
-</main>
+</main> {% endcomment %}
 <!--Main layout-->
+{% if notifications %}
+    <div class="container mt-4">
+        <div class="card" style="border: none; background-color: #ffffff;">
+            <div class="card-header text-center" style="border-top: 2px dashed #ffffff; border-bottom: 2px dashed #ffffff; background-color: #ffffff;">
+                <h4 class="mb-0" style="color: #f90505; font-weight: bold;">
+                    <span style="display: inline-block; animation: star-animation 1.5s infinite;">✨</span> 
+                    NOTIFICATION
+                    <span style="display: inline-block; animation: star-animation 1.5s infinite;">✨</span> 
+                </h4>
+            </div>
+            <div class="card-body p-0">
+                <table class="table mb-0" style="background-color: #ffffff;">
+                    <tbody>
+                        {% for notification in notifications %}
+                            <tr style="border-bottom: 1px dashed black;">
+                                <td style="width: 5%; font-weight: bold;">
+                                    <span style="color: red; animation: blink-animation 0.55s infinite;">»</span> 
+                                </td>
+                                <td style="width: 75%; color: black;">
+                                    <strong>{{ notification.title }}:</strong><br>
+                                    <span>{{ notification.content}}</span> 
+                                </td>
+                                <td style="width: 20%; color: black;" class="text-muted text-right">
+                                    {{ notification.created_at|date:"d/m/Y H:i" }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
 
-<br><br><br><br><br><br>
+<!-- CSS -->
+<style>
+@keyframes blink-animation {
+    0% { color: red; }
+    50% { color: white; }
+    100% { color: red; }
+}
+
+@keyframes star-animation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+</style>
+<br><br><br>
 {% endblock content %}

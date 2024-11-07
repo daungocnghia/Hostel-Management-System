@@ -8,9 +8,15 @@ from django.http import JsonResponse
 
 def welcome_page(request):
     rooms = Rooms.objects.all()
-    for room in rooms:
-        print(room.image1.url)
-    context = {"rooms":rooms}
+    notifications = Notification.objects.filter(is_active = True).order_by('-created_at')
+
+
+    # for room in rooms:
+    #     print(room.image1.url)
+    context = {
+        # "rooms":rooms,
+        "notifications" : notifications
+        }
     return render(request, "home.html", context)
 
 
